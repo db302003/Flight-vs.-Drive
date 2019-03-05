@@ -1,0 +1,32 @@
+
+body {
+    background-color: #ffb10abb 
+}
+
+#cartoonfavorites {
+	font-style: italic;
+	font-size: 36px;
+}
+
+.container {
+	opacity: 1;
+	margin-left: 35px;
+}
+
+button {
+    margin: 5px;
+    background-color: #a7ffa4;
+    color: black;
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-color: #ffef97;
+    border-radius: 5px;
+}
+
+#cartoon-input-box {
+	float: right;
+    padding-right: 60%;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Giphy API</title>
+
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.w3-btn {width:150px;}
+</style>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="assets/javascript/app.js"></script>
+        
+        </head>
+        <style>
+        body {
+        background-color: #ffb10abb 
+        }</style>
+                
+<body> 
+  <script>
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=J24Itxs0IT3e7tt5N0Nkfm84xyVgiaI3&q=cartoons";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+    });
+  </script>
+
+  <div class="container" style="font-family: Comic Sans MS, Comic Sans, cursive">
+    <h1 id="cartoonfavorites" style="text-align:center;"> Favorite Giphy Cartoons </h1> 
+    <div id="cartoonbuttons"></div>
+    <p> <button class="w3-button w3-black w3-round-large">Bugs Bunny</button>
+        <button class="w3-button w3-red w3-round-large">Porky Pig</button>
+        <button class="w3-button w3-green w3-round-large">Tom & Jerry</button>
+        <button class="w3-button w3-yellow w3-round-large">DuckTales</button>
+        <button class="w3-button w3-orange w3-round-large">Smurfs</button>
+        <button class="w3-button w3-purple w3-round-large">The Jetsons</button>
+        <button class="w3-button w3-brown w3-round-large">Mickey Mouse</button>
+        <button class="w3-button w3-white w3-round-large">Scooby Doo</button>
+        <button class="w3-button w3-blue w3-round-large">Charlie Brown</button>
+        <button class="w3-button w3-gray w3-round-large">The Simpsons</button>
+        <button class="w3-button w3-pink w3-round-large">The Flinstones</button>
+</p>
+    <div id="cartoon-input-box">
+      <form id= "cartoon-form">
+        <label for="cartoon-input">Add Favorite Cartoon</label>
+        <input type="text" id="cartoon-input"><br>
+        
+        <input id="add-cartoon" type="submit" value="Submit">
+      </form>
+
+    </div>
+
+   <div id="cartoonview"></div>
+
+  </div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
