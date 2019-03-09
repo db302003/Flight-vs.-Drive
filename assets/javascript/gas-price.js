@@ -23,6 +23,8 @@ $.ajax({
     var distance = results[0].elements[0].distance.text
 
     console.log(distance)
+}, function (errorObject) {
+    console.log("the read failed:" + errorObject.code)
 });
 
 var totalGasCost = 0;
