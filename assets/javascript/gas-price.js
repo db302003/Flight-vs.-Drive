@@ -25,9 +25,9 @@ $.ajax({
     console.log(distance)
 });
 
-var gasCost = 0;
+var totalGasCost = 0;
 var gallonsNeeded = distance / milesPerGallon;
 
-gasCost = gasCost * gasPrice;
+totalGasCost = gallonsNeeded * gasPrice;
 
 //}); //close document.ready
