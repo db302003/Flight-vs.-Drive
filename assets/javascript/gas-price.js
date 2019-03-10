@@ -1,4 +1,4 @@
-//$(document).ready(function () {
+$(document).ready(function () {
 
 // apikey AIzaSyDS40PLoeiiJqj8po97w_uihJEJ9es1QB0
 
@@ -71,6 +71,8 @@ for(var i = 0; i < carYear.length; i++){
 
     var newDropButton = $("<button>")
     newDropButton.addClass("dropdown-item")
+    newDropButton.addClass("car-year-value")
+    newDropButton.attr("data-boundary", "scrollParent")
     newDropButton.attr("value", carYear[i].value)
     newDropButton.text(carYear[i].text)
 
@@ -84,4 +86,15 @@ for(var i = 0; i < carYear.length; i++){
     console.log("the read failed:" + errorObject.code)
 });
 
-//}); //close document.ready
+
+
+function getYearValue() {
+    
+    var carYearValue = $(".car-year-value").val
+
+}
+
+$(document).on("click", ".car-year-value", getYearValue);
+
+
+}); //close document.ready
