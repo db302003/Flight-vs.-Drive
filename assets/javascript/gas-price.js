@@ -11,6 +11,8 @@ var gallonsPerTank = 0;
 var queryURL = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + queryOrigin + "&destinations=" + queryDestination + "&key=AIzaSyDS40PLoeiiJqj8po97w_uihJEJ9es1QB0"
 var proxyURL = "https://cors-anywhere.herokuapp.com/"
 
+
+//ajax call to get disance between two locations
 $.ajax({
 
     url: proxyURL + queryURL,
@@ -33,12 +35,7 @@ $.ajax({
 });
 
 
-
-
-//}); //close document.ready
-
-
-
+// ajax call to get current average gas price
 $.ajax({
 
     url: proxyURL + "https://www.fueleconomy.gov/ws/rest/fuelprices/",
@@ -47,9 +44,44 @@ $.ajax({
 
 }).then(function (response) {
 
-    fuelPrice = response.regular
+    var fuelPrice = response.regular
 
     console.log(fuelPrice)
 }, function (errorObject) {
     console.log("the read failed:" + errorObject.code)
 });
+
+
+
+
+// ajax call to get list of vehicle makes
+
+$.ajax({
+
+    url: proxyURL + "https://www.fueleconomy.gov/ws/rest/vehicle/menu/year",
+    method: "GET",
+    dataType: "JSON"
+
+}).then(function (response) {
+
+var carYear = response.menuItem
+
+for(var i = 0; i < carYear.length; i++){
+
+
+    var newDropButton = $("<button>")
+    newDropButton.addClass("dropdown-item")
+    newDropButton.attr("value", carYear[i].value)
+    newDropButton.text(carYear[i].text)
+
+    $(".car-year").append(newDropButton)
+
+
+}
+
+
+}, function (errorObject) {
+    console.log("the read failed:" + errorObject.code)
+});
+
+//}); //close document.ready
