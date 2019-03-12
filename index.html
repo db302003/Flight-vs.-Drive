@@ -2,84 +2,128 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Flight Vs Gas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Flight Vs Gas</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-
-    <script type="text/javascript" src="assets/javascript/flight.js"></script>
-    <script type="text/javascript" src="assets/javascript/gas-price.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  
+  <script type="text/javascript" src="assets/javascript/flight.js"></script>
+  <script type="text/javascript" src="assets/javascript/gas-price.js"></script>
 
 
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="#">
-        <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-        Drive vs Fly 
-      </a>
-    </nav>
 
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-6">
-            <form>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="origin">Origin</label>
-                  <input type="text" class="form-control" id="origin" placeholder="City, State">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="destination">Destination</label>
-                  <input type="text" class="form-control" id="destination" placeholder="City, State">
-                </div>
-              </div>
-              <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="depart">Departing</label>
-                    <input type="text" class="form-control" id="depart" placeholder="MM/DD/YYYY">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="return">Returning</label>
-                    <input type="text" class="form-control" id="return" placeholder="MM/DD/YYYY">
-                  </div>
-                </div>
-              <div class="form-row">
-                <div class="form-group col-md-12">
-                  <label for="inputCity">This is random but... what's your car's average MPG?</label>
-                  <input type="text" class="form-control" id="mpg" placeholder="Example: 23">
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary" id="compare">Compare</button>
-            </form>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top"
+        alt="">
+      Drive vs Fly
+    </a>
+  </nav>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="origin">Origin</label>
+              <input type="text" class="form-control" id="origin" placeholder="City, State">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="destination">Destination</label>
+              <input type="text" class="form-control" id="destination" placeholder="City, State">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="depart">Departing</label>
+              <input type="text" class="form-control" id="depart" placeholder="MM/DD/YYYY">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="return">Returning</label>
+              <input type="text" class="form-control" id="return" placeholder="MM/DD/YYYY">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="inputCity">This is random but... what's your car's average MPG?</label>
+              <input type="text" class="form-control" id="mpg" placeholder="Example: 23">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" id="compare">Compare</button>
+        </form>
+
+        <div class="container drop-down-menus">
+
+        <!--year dropdown-->
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"  data-boundary=scrollParent data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <p class="car-year-button-display">Year</p>
+          </button>
+          <div class="dropdown-menu car-year" data-boundary="scrollParent" aria-labelledby="dropdownMenu2">
+          </div>
         </div>
+
+        <!--make dropdown-->
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle  make-dropdown" type="button" id="dropdownMenu2" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <p class="car-make-button-display">Make</p>
+          </button>
+          <div class="dropdown-menu car-make" data-boundary="scrollParent" aria-labelledby="dropdownMenu2">
+          </div>
+
+          <!--model dropdown-->
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle model-dropdown" type="button" id="dropdownMenu2" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <p class="car-model-button-display">Model</p>
+            </button>
+            <div class="dropdown-menu car-model" data-boundary="scrollParent" aria-labelledby="dropdownMenu2">
+            </div>
+            <!--trim dropdown-->
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle trim-dropdown" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <p class="car-trim-button-display">Trim</p>
+              </button>
+              <div class="dropdown-menu car-trim" data-boundary="scrollParent" aria-labelledby="dropdownMenu2">
+              </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
+      <!--     footer  -->
 
-    </div>
-
-    <!--     footer  -->
-
-    <!-- <footer class="container-fluid text-center">
+      <!-- <footer class="container-fluid text-center">
         <p>Copyright &copy</p>
     </footer> -->
 
-    <!--     Bootstrap information  -->
+      <!--     Bootstrap information  -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
         integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
 </body>
