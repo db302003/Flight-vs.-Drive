@@ -1,4 +1,7 @@
 .drop-down-menus {
+  max-height: 15%;
+}
 
-    max-height: 15%;
+form{
+  margin-top: 40px;
 }
