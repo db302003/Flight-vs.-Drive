@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+    $('.make-dropdown').prop('disabled', true);
+    $('.model-dropdown').prop('disabled', true);
+    $('.trim-dropdown').prop('disabled', true);
+
     // apikey AIzaSyDS40PLoeiiJqj8po97w_uihJEJ9es1QB0
 
     var queryOrigin = "nashville tennessee";
@@ -120,8 +124,7 @@ $(document).ready(function () {
     }
 
     function carModelMenuFiller() {
-        console.log(carYearValue)
-        console.log(carMakeValue)
+
         $.ajax({
 
             url: proxyURL + "https://www.fueleconomy.gov//ws/rest/vehicle/menu/model?year=" + carYearValue + "&make=" + carMakeValue,
@@ -212,6 +215,9 @@ $(document).ready(function () {
 
         carYearValue = $(this).val()
         console.log(carYearValue)
+
+        $(".car-year-button-display").text(carYearValue)
+        $('.make-dropdown').prop('disabled', false);
         return carYearValue
 
     }
@@ -221,14 +227,20 @@ $(document).ready(function () {
 
         carMakeValue = $(this).val()
         console.log(carMakeValue)
+
+        $(".car-make-button-display").text(carMakeValue)
+        $('.model-dropdown').prop('disabled', false);
         return carMakeValue
 
     }
 
     function getModelValue() {
-        console.log('getModelValue')
+
         carModelValue = $(this).val()
         console.log(carModelValue)
+
+        $(".car-model-button-display").text(carModelValue)
+        $('.time-dropdown').prop('disabled', false);
         return carModelValue
 
     }
@@ -237,6 +249,9 @@ $(document).ready(function () {
 
         carTrimIDValue = $(this).val()
         console.log(carTrimIDValue)
+
+        $(".car-trim-button-display").text(carTimIDValue)
+        $('.trim-dropdown').prop('disabled', false);
         return carTrimIDValue
 
     }
