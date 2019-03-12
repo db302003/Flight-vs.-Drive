@@ -122,7 +122,7 @@ $(document).ready(function () {
 
     function getYearValue() {
 
-        carYearValue = $(".car-year-value").val()
+        carYearValue = $(this).val()
         console.log(carYearValue)
         return carYearValue
 
@@ -131,7 +131,7 @@ $(document).ready(function () {
 
     function getMakeValue() {
 
-        carMakeValue = $(".car-make-value").val()
+        carMakeValue = $(this).val()
         console.log(carMakeValue)
         return carMakeValue
 
