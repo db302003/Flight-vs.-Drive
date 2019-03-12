@@ -117,6 +117,94 @@ $(document).ready(function () {
         }, function (errorObject) {
             console.log("the read failed:" + errorObject.code)
         });
+    }
+
+    function carModelMenuFiller() {
+        console.log(carYearValue)
+        console.log(carMakeValue)
+        $.ajax({
+
+            url: proxyURL + "https://www.fueleconomy.gov//ws/rest/vehicle/menu/model?year=" + carYearValue + "&make=" + carMakeValue,
+            method: "GET",
+            dataType: "JSON"
+
+        }).then(function (response) {
+            var carModel = response.menuItem
+
+            console.log(carModel)
+
+            for (var i = 0; i < carModel.length; i++) {
+
+
+                var newDropButton = $("<button>")
+                newDropButton.addClass("dropdown-item")
+                newDropButton.addClass("car-model-value")
+                newDropButton.attr("data-boundary", "scrollParent")
+                newDropButton.attr("value", carModel[i].value)
+                newDropButton.text(carModel[i].text)
+
+                $(".car-model").append(newDropButton)
+            }
+
+        }, function (errorObject) {
+            console.log("the read failed:" + errorObject.code)
+        });
+
+    }
+
+    function carTrimMenuFiller() {
+
+        $.ajax({
+
+            url: proxyURL + "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=" + carYearValue + "&make=" + carMakeValue + "&model=" + carModelValue,
+            method: "GET",
+            dataType: "JSON"
+
+        }).then(function (response) {
+
+            var carTrim = response.menuItem
+
+            console.log(carTrim)
+
+            for (var i = 0; i < carTrim.length; i++) {
+
+
+                var newDropButton = $("<button>")
+                newDropButton.addClass("dropdown-item")
+                newDropButton.addClass("car-trim-value")
+                newDropButton.attr("data-boundary", "scrollParent")
+                newDropButton.attr("value", carTrim[i].value)
+                newDropButton.text(carTrim[i].text)
+
+                $(".car-trim").append(newDropButton)
+            }
+
+
+        }, function (errorObject) {
+            console.log("the read failed:" + errorObject.code)
+        });
+
+    }
+
+    function getAerageMPG() {
+
+        $.ajax({
+
+            url: proxyURL + "https://www.fueleconomy.gov//ws/rest/ympg/shared/ympgVehicle/" + carTrimIDValue,
+
+            method: "GET",
+            dataType: "JSON"
+
+        }).then(function (response) {
+
+            console.log(response)
+            var averageMPG = response.avgMpg
+
+            console.log("average MPG: " + averageMPG)
+
+        }, function (errorObject) {
+            console.log("the read failed:" + errorObject.code)
+        });
 
     }
 
@@ -137,10 +225,34 @@ $(document).ready(function () {
 
     }
 
+    function getModelValue() {
+        console.log('getModelValue')
+        carModelValue = $(this).val()
+        console.log(carModelValue)
+        return carModelValue
+
+    }
+
+    function getTrimIDValue() {
+
+        carTrimIDValue = $(this).val()
+        console.log(carTrimIDValue)
+        return carTrimIDValue
+
+    }
+
     $(document).on("click", ".car-year-value", getYearValue);
     $(document).on("click", ".car-year-value", carMakeMenuFiller);
 
     $(document).on("click", ".car-make-value", getMakeValue);
+    $(document).on("click", ".car-make-value", carModelMenuFiller);
+
+    $(document).on("click", ".car-model-value", getModelValue);
+    $(document).on("click", ".car-model-value", carTrimMenuFiller);
+
+    $(document).on("click", ".car-trim-value", getTrimIDValue);
+    $(document).on("click", ".car-trim-value", getAerageMPG);
+
 
 
 }); //close document.ready
