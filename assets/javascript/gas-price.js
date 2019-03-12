@@ -240,7 +240,7 @@ $(document).ready(function () {
         console.log(carModelValue)
 
         $(".car-model-button-display").text(carModelValue)
-        $('.time-dropdown').prop('disabled', false);
+        $('.trim-dropdown').prop('disabled', false);
         return carModelValue
 
     }
@@ -250,8 +250,7 @@ $(document).ready(function () {
         carTrimIDValue = $(this).val()
         console.log(carTrimIDValue)
 
-        $(".car-trim-button-display").text(carTimIDValue)
-        $('.trim-dropdown').prop('disabled', false);
+        $(".car-trim-button-display").text(carTrimIDValue)
         return carTrimIDValue
 
     }
