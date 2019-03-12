@@ -1,0 +1,30 @@
+
+  .jumbotron {
+    text-align: center !important;
+    background: #778899 !important;
+    color: #ffffff !important;
+  }
+  
+  p {
+    font-family: Georgia, Times, "Times New Roman", serif !important;
+    font-size: 18px !important;
+    color: #4aaaa5 !important;
+  
+  }
+  
+  h2{
+    color: #ffffff;
+  }
+  h3 {
+      color: #FFF8DC !important;
+  }
+  
+  #train-table-body {
+    text-align: center;
+  }
+  
+  #train-table-header th {
+    text-align: center;
+    font-weight: bold;
+  }
+  
