@@ -250,7 +250,7 @@ $(document).ready(function () {
         carTrimIDValue = $(this).val()
         console.log(carTrimIDValue)
 
-        $(".car-trim-button-display").text(carTrimIDValue)
+
         return carTrimIDValue
 
     }
