@@ -18,39 +18,6 @@ $(document).ready(function () {
     var proxyURL = "https://cors-anywhere.herokuapp.com/"
 
 
-    //ajax call to get disance between two locations
-
-    function getTotalFuelCost() {
-
-        $.ajax({
-
-            url: proxyURL + queryURL,
-            method: "GET"
-
-        }).then(function (response) {
-
-            var results = response.rows;
-
-            var distance = results[0].elements[0].distance.text
-
-            console.log(distance)
-
-            $("#miles").text(distance);
-
-
-            var gallonsNeeded = distance / averageMPG;
-
-            totalfuelCost = gallonsNeeded * fuelPrice;
-
-            $("#totalPrice").text(totalfuelCost);
-
-        }, function (errorObject) {
-            console.log("the read failed:" + errorObject.code)
-        });
-
-    }
-
-
     // ajax call to get current average gas price
     $.ajax({
 
@@ -62,10 +29,52 @@ $(document).ready(function () {
 
         fuelPrice = response.regular
 
+        fuelPrice = parseFloat(fuelPrice);
+
         console.log(fuelPrice)
     }, function (errorObject) {
         console.log("the read failed:" + errorObject.code)
     });
+
+
+
+    //ajax call to get disance between two locations and multiply it by the average MPG
+    function getTotalFuelCost() {
+
+        $.ajax({
+
+            url: proxyURL + queryURL,
+            method: "GET"
+
+        }).then(function (response) {
+
+            var results = response.rows;
+
+            distance = results[0].elements[0].distance.text
+
+            distance = parseFloat(distance)
+
+            console.log("distance " + distance)
+
+            $("#miles").text(distance);
+
+
+            var gallonsNeeded = distance / averageMPG;
+            console.log("gallons needed: " + gallonsNeeded)
+
+            var totalfuelCost = gallonsNeeded * fuelPrice;
+            totalfuelCost = parseInt(totalfuelCost)
+            console.log("total Cost " + totalfuelCost)
+
+            $("#totalPrice").text(totalfuelCost);
+
+        }, function (errorObject) {
+            console.log("the read failed:" + errorObject.code)
+        });
+
+    }
+
+
 
 
 
@@ -201,6 +210,8 @@ $(document).ready(function () {
 
     }
 
+    
+    
     function getAverageMPG() {
 
         $.ajax({
@@ -211,26 +222,25 @@ $(document).ready(function () {
             dataType: "JSON"
 
         }).then(function (response) {
-            
-            if(response !== undefined){
-                console.log(response.avgMpg);
+
 
                 var response = response.avgMpg;
-                averageMPG =  Math.floor(parseInt(response) * 100) / 100;
+                averageMPG = Math.floor(parseInt(response) * 100) / 100;
+                
 
                 console.log("average MPG: " + averageMPG);
                 $("#avgMPG").text(averageMPG);
-            } else{
-                $("#avgMPG").text("MPG not found - " + 24.7);
-            }
 
-        
+                return averageMPG;
+
 
         }, function (errorObject) {
             console.log("the read failed:" + errorObject.code)
         });
 
     }
+
+    
 
     function getYearValue() {
 
@@ -292,7 +302,7 @@ $(document).ready(function () {
 
     $(document).on("click", "#compare", getTotalFuelCost);
 
-    
+
 
     $(".dropdown").on("click", function (event) {
         event.preventDefault();
