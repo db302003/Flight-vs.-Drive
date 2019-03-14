@@ -190,19 +190,21 @@ $(document).ready(function () {
 
     }
 
-    function getAerageMPG() {
+    function getAverageMPG() {
 
         $.ajax({
 
-            url: proxyURL + "https://www.fueleconomy.gov//ws/rest/ympg/shared/ympgVehicle/" + carTrimIDValue,
+            url: proxyURL + "https://www.fueleconomy.gov/ws/rest/ympg/shared/ympgVehicle/" + carTrimIDValue,
 
             method: "GET",
             dataType: "JSON"
 
         }).then(function (response) {
 
-            console.log(response)
-            averageMPG = response.avgMpg
+            console.log(response.avgMpg)
+
+            var response = response.avgMpg
+            averageMPG = response
 
             console.log("average MPG: " + averageMPG)
 
@@ -266,7 +268,7 @@ $(document).ready(function () {
     $(document).on("click", ".car-model-value", carTrimMenuFiller);
 
     $(document).on("click", ".car-trim-value", getTrimIDValue);
-    $(document).on("click", ".car-trim-value", getAerageMPG);
+    $(document).on("click", ".car-trim-value", getAverageMPG);
 
     $(".dropdown").on("click", function(event) {
         event.preventDefault();
