@@ -10,34 +10,39 @@ $(document).ready(function () {
     var queryDestination = "Middletown new jersey";
     var fuelPrice = 0;
     var averageMPG = 0;
-    var totalGasCost = 0;
+    var totalfuelCost = 0;
 
     var queryURL = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + queryOrigin + "&destinations=" + queryDestination + "&key=AIzaSyDS40PLoeiiJqj8po97w_uihJEJ9es1QB0"
     var proxyURL = "https://cors-anywhere.herokuapp.com/"
 
 
     //ajax call to get disance between two locations
-    $.ajax({
 
-        url: proxyURL + queryURL,
-        method: "GET"
+    function getTotalFuelCost() {
 
-    }).then(function (response) {
+        $.ajax({
 
-        var results = response.rows;
+            url: proxyURL + queryURL,
+            method: "GET"
 
-        var distance = results[0].elements[0].distance.text
+        }).then(function (response) {
 
-        console.log(distance)
+            var results = response.rows;
+
+            var distance = results[0].elements[0].distance.text
+
+            console.log(distance)
 
 
-        var gallonsNeeded = distance / averageMPG;
+            var gallonsNeeded = distance / averageMPG;
 
-        totalGasCost = gallonsNeeded * fuelPrice;
-        
-    }, function (errorObject) {
-        console.log("the read failed:" + errorObject.code)
-    });
+            totalfuelCost = gallonsNeeded * fuelPrice;
+
+        }, function (errorObject) {
+            console.log("the read failed:" + errorObject.code)
+        });
+
+    }
 
 
     // ajax call to get current average gas price
@@ -190,19 +195,21 @@ $(document).ready(function () {
 
     }
 
-    function getAerageMPG() {
+    function getAverageMPG() {
 
         $.ajax({
 
-            url: proxyURL + "https://www.fueleconomy.gov//ws/rest/ympg/shared/ympgVehicle/" + carTrimIDValue,
+            url: proxyURL + "https://www.fueleconomy.gov/ws/rest/ympg/shared/ympgVehicle/" + carTrimIDValue,
 
             method: "GET",
             dataType: "JSON"
 
         }).then(function (response) {
 
-            console.log(response)
-            averageMPG = response.avgMpg
+            console.log(response.avgMpg)
+
+            var response = response.avgMpg
+            averageMPG = response
 
             console.log("average MPG: " + averageMPG)
 
@@ -266,9 +273,13 @@ $(document).ready(function () {
     $(document).on("click", ".car-model-value", carTrimMenuFiller);
 
     $(document).on("click", ".car-trim-value", getTrimIDValue);
-    $(document).on("click", ".car-trim-value", getAerageMPG);
+    $(document).on("click", ".car-trim-value", getAverageMPG);
 
-    $(".dropdown").on("click", function(event) {
+    $(document).on("click", "#compare", getTotalFuelCost);
+
+    
+
+    $(".dropdown").on("click", function (event) {
         event.preventDefault();
     });
 
