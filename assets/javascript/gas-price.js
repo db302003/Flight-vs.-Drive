@@ -38,6 +38,8 @@ $(document).ready(function () {
 
             totalfuelCost = gallonsNeeded * fuelPrice;
 
+            return totalfuelCost;
+
         }, function (errorObject) {
             console.log("the read failed:" + errorObject.code)
         });
@@ -48,7 +50,7 @@ $(document).ready(function () {
     // ajax call to get current average gas price
     $.ajax({
 
-        url: proxyURL + "https://www.fueleconomy.gov/ws/rest/fuelprices/",
+        url: "https://www.fueleconomy.gov/ws/rest/fuelprices/",
         method: "GET",
         dataType: "JSON"
 
@@ -68,7 +70,7 @@ $(document).ready(function () {
 
     $.ajax({
 
-        url: proxyURL + "https://www.fueleconomy.gov/ws/rest/vehicle/menu/year",
+        url: "https://www.fueleconomy.gov/ws/rest/vehicle/menu/year",
         method: "GET",
         dataType: "JSON"
 
@@ -101,7 +103,7 @@ $(document).ready(function () {
 
         $.ajax({
 
-            url: proxyURL + "https://www.fueleconomy.gov/ws/rest/vehicle/menu/make?year=" + carYearValue,
+            url: "https://www.fueleconomy.gov/ws/rest/vehicle/menu/make?year=" + carYearValue,
             method: "GET",
             dataType: "JSON"
 
@@ -133,7 +135,7 @@ $(document).ready(function () {
 
         $.ajax({
 
-            url: proxyURL + "https://www.fueleconomy.gov//ws/rest/vehicle/menu/model?year=" + carYearValue + "&make=" + carMakeValue,
+            url: "https://www.fueleconomy.gov//ws/rest/vehicle/menu/model?year=" + carYearValue + "&make=" + carMakeValue,
             method: "GET",
             dataType: "JSON"
 
@@ -165,7 +167,7 @@ $(document).ready(function () {
 
         $.ajax({
 
-            url: proxyURL + "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=" + carYearValue + "&make=" + carMakeValue + "&model=" + carModelValue,
+            url: "https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=" + carYearValue + "&make=" + carMakeValue + "&model=" + carModelValue,
             method: "GET",
             dataType: "JSON"
 
@@ -199,7 +201,7 @@ $(document).ready(function () {
 
         $.ajax({
 
-            url: proxyURL + "https://www.fueleconomy.gov/ws/rest/ympg/shared/ympgVehicle/" + carTrimIDValue,
+            url: "https://www.fueleconomy.gov/ws/rest/ympg/shared/ympgVehicle/" + carTrimIDValue,
 
             method: "GET",
             dataType: "JSON"
