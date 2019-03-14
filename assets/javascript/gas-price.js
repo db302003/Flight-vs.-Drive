@@ -8,9 +8,9 @@ $(document).ready(function () {
 
     var queryOrigin = "nashville tennessee";
     var queryDestination = "Middletown new jersey";
-    var gasPrice = 3;
-    var milesPerGallon = 0;
-    var gallonsPerTank = 0;
+    var fuelPrice = 0;
+    var averageMPG = 0;
+    var totalGasCost = 0;
 
     var queryURL = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + queryOrigin + "&destinations=" + queryDestination + "&key=AIzaSyDS40PLoeiiJqj8po97w_uihJEJ9es1QB0"
     var proxyURL = "https://cors-anywhere.herokuapp.com/"
@@ -30,10 +30,11 @@ $(document).ready(function () {
 
         console.log(distance)
 
-        var totalGasCost = 0;
-        var gallonsNeeded = distance / milesPerGallon;
 
-        totalGasCost = gallonsNeeded * gasPrice;
+        var gallonsNeeded = distance / averageMPG;
+
+        totalGasCost = gallonsNeeded * fuelPrice;
+        
     }, function (errorObject) {
         console.log("the read failed:" + errorObject.code)
     });
@@ -48,7 +49,7 @@ $(document).ready(function () {
 
     }).then(function (response) {
 
-        var fuelPrice = response.regular
+        fuelPrice = response.regular
 
         console.log(fuelPrice)
     }, function (errorObject) {
@@ -201,7 +202,7 @@ $(document).ready(function () {
         }).then(function (response) {
 
             console.log(response)
-            var averageMPG = response.avgMpg
+            averageMPG = response.avgMpg
 
             console.log("average MPG: " + averageMPG)
 
@@ -266,6 +267,12 @@ $(document).ready(function () {
 
     $(document).on("click", ".car-trim-value", getTrimIDValue);
     $(document).on("click", ".car-trim-value", getAerageMPG);
+
+    $(".dropdown").on("click", function(event) {
+        event.preventDefault();
+    });
+
+
 
 
 
