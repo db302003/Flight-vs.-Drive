@@ -275,6 +275,10 @@ $(document).ready(function () {
     $(document).on("click", ".car-trim-value", getTrimIDValue);
     $(document).on("click", ".car-trim-value", getAverageMPG);
 
+    $(document).on("click", "#compare", getTotalFuelCost);
+
+    
+
     $(".dropdown").on("click", function (event) {
         event.preventDefault();
     });
