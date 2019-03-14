@@ -8,7 +8,7 @@ $(document).ready(function () {
     var origin = $("#origin").val().trim();
     var destination = $("#destination").val().trim();
     var departDate = $("#depart").val().trim();
-    // var returnDate = $("#return").val().trim();
+    var returnDate = $("#return").val().trim();
 
     // var origin = "ATL";
     // var destination = "SEA";
@@ -42,7 +42,7 @@ $(document).ready(function () {
 
       var flights = Object.values(results || {});
 
-      if (flights.length > 0) {
+      if (flights.length < 0) {
 
         for (var i = 0; i < flights.length; i++) {
 
@@ -56,9 +56,21 @@ $(document).ready(function () {
 
         alert("There are no flights for that date")
 
-      }
+        var queryURL = "http://api.travelpayouts.com/v2/prices/week-matrix?currency=usd&origin=" + origin + "&destination=" + destination + "&show_to_affiliates=true&depart_date=" + departDate + "&return_date=" + returnDate + "&token=1f05289ab3a16e64e8b24b766475cee5"
 
-      console.log(flights)
+        $.ajax({
+          url: proxyURL + queryURL,
+          method: "get",
+          dataType: "JSON"
+
+        }).then(function (response) {
+
+          console.log(response.data)
+
+        })
+
+        console.log(flights)
+      }
     });
   });
 });
