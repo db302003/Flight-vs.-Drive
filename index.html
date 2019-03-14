@@ -6,13 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Flight Vs Gas</title>
-  <style> 
-    body {
-      background-image: url("https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1500660066/travel-hacks-opener-TRAVELHACK0717.jpg?itok=HgP9J2B_")
-    }
-  </style>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet">
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
@@ -27,15 +24,11 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-      <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top"
-        alt="">
-      <h1> Drive vs. Fly </h1>
-    </a>
-  </nav>
+  <a class="" href="./index.html">
+    <h1> Drive vs. Fly </h1>
+  </a>
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-6">
         <form>
@@ -47,6 +40,16 @@
             <div class="form-group col-md-6">
               <label for="destination">Destination</label>
               <input type="text" class="form-control" id="destination" placeholder="City, State">
+            </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+              <label for="origin">Origin's Airport Code</label>
+              <input type="text" class="form-control" id="originAirport" placeholder="Exmaple: ATL">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="destination">Destination Airport Code</label>
+              <input type="text" class="form-control" id="destinationAirport" placeholder="Exmaple: LAX">
             </div>
           </div>
           <div class="form-row">
@@ -106,16 +109,33 @@
         <button type="submit" class="btn btn-primary" id="compare">Compare</button>
       </form>
 
+    </div>
+
+    <div class="container-fluid" id="results">
+      <div class="row justify-content-around">
+        <div class="col-md-5 col-sm-12 fly">
+            <i class="results fas fa-plane"></i>
+            <h2>Total Cost</h2>
+            <h3 id="totalFlightPrice"></h3>
+            <h2>Total Miles</h2>
+            <h3 id="airline"></h3>
+            <h2>Your Car's Average MPG</h2>
+            <h3 id="flightNumber"></h3>
+        </div>
+        <div class="col-md-5 col-md-offset-2 col-sm-12 drive">
+            <i class="results fas fa-car"></i>
+            <h2>Total Cost</h2>
+            <p id="totalPrice"></p>
+            <h2>Total Miles</h2>
+            <p id="miles"></p>
+            <h2>Your Car's Average MPG</h2>
+            <p id="avgMPG"></p>
+        </div>
       </div>
+    </div>
 
 
 
-
-
-      <!--     footer  -->
-      <!-- <footer class="container-fluid text-center">
-        <p>Copyright &copy</p>
-    </footer> -->
       <!--     Bootstrap information  -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
         integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"

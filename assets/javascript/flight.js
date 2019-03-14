@@ -5,21 +5,23 @@ $(document).ready(function () {
 
     console.log("test");
 
-    var origin = $("#origin").val().trim();
-    var destination = $("#destination").val().trim();
-    var departDate = $("#depart").val().trim();
-    var returnDate = $("#return").val().trim();
+    // var origin = $("#originAirport").val().trim();
+    // var destination = $("#destinationAirport").val().trim();
+    // var departDate = $("#depart").val().trim();
+    // var returnDate = $("#return").val().trim();
 
-    // var origin = "ATL";
-    // var destination = "SEA";
-    // var departDate = "2019-03-15";
-    // var returnDate = "2019-04";
+    var origin = "ATL";
+    var destination = "SEA";
+    var departDate = "2019-04-15";
+    var returnDate = "2019-04";
 
     console.log(origin);
     console.log(destination);
     console.log(departDate);
-    // console.log(returnDate);
-    var queryURL = "http://api.travelpayouts.com/v1/prices/cheap?origin=" + origin + "&destination=" + destination + "&depart_date=" + departDate + "&currency=USD&token=1f05289ab3a16e64e8b24b766475cee5"
+
+    // var queryURL = "http://api.travelpayouts.com/v1/prices/cheap?origin=" + origin + "&destination=" + destination + "&depart_date=" + departDate + "&currency=USD&token=1f05289ab3a16e64e8b24b766475cee5"
+
+    var queryURL = "https://api.travelpayouts.com/v1/prices/cheap?origin=LAX&destination=JFK&depart_date=2019-05&return_date=2019-06&token=1f05289ab3a16e64e8b24b766475cee5"
 
     console.log(queryURL)
 
@@ -27,12 +29,10 @@ $(document).ready(function () {
 
     $.ajax({
       url: proxyURL + queryURL,
-      method: "get",
-      dataType: "JSON"
-
+      method: "get"
     }).then(function (response) {
 
-      $("form").remove();
+      // $("form").remove();
       console.log(response);
       console.log(destination);
 
@@ -55,7 +55,7 @@ $(document).ready(function () {
 
         alert("There are no flights for that date")
 
-        var queryURL = "http://api.travelpayouts.com/v2/prices/week-matrix?currency=usd&origin=" + origin + "&destination=" + destination + "&show_to_affiliates=true&depart_date=" + departDate + "&return_date=" + returnDate + "&token=1f05289ab3a16e64e8b24b766475cee5"
+        var queryURL = "http://api.travelpayouts.com/v2/prices/week-matrix?currency=usd&origin=" + originAirport + "&destination=" + destinationAirport + "&show_to_affiliates=true&depart_date=" + departDate + "&return_date=" + returnDate + "&token=1f05289ab3a16e64e8b24b766475cee5"
 
         $.ajax({
           url: proxyURL + queryURL,
@@ -71,5 +71,10 @@ $(document).ready(function () {
         console.log(flights)
       }
     });
+
+    $('form').remove();
+    $("#results").css("display", "inline");
   });
 });
+
+
