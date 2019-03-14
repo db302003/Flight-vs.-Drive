@@ -30,3 +30,8 @@ p{
 .dropdown p {
   float: left;
 }
+
+form{
+  background-color: white;
+  padding: 40px;
+}
