@@ -2,6 +2,27 @@
   max-height: 15%;
 }
 
+body{
+  font-family: 'Raleway', sans-serif;
+  background-image: url("../images/bg.jpg");
+}
+
+h1{
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
 form{
   margin-top: 40px;
 }
@@ -34,4 +55,35 @@ p{
 form{
   background-color: white;
   padding: 40px;
+}
+
+.fly{
+  background-color: white;
+  text-align: center;
+  padding: 40px 20px 20px 20px;
+  margin-top: 40px;
+}
+
+.drive{
+  background-color: white;
+  text-align: center;
+  padding: 40px 20px 20px 20px;
+  margin-top: 40px;
+}
+
+i.results{
+  color: lightgrey; 
+  font-size: 3em;
+}
+
+h2{
+  color: darkgrey;
+  font-size: 1em;
+  margin-top: 20px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+h3{
+  font-size: 1.5em;
 }
