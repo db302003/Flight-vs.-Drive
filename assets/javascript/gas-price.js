@@ -267,6 +267,12 @@ $(document).ready(function () {
     $(document).on("click", ".car-trim-value", getTrimIDValue);
     $(document).on("click", ".car-trim-value", getAerageMPG);
 
+    $(".dropdown").on("click", function(event) {
+        event.preventDefault();
+    });
+
+
+
 
 
 }); //close document.ready

@@ -5,3 +5,28 @@
 form{
   margin-top: 40px;
 }
+
+.dropdown-toggle{
+  width: 100%;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+
+p{
+  margin-bottom: 0px;
+}
+
+.dropdown button{
+  border: 1px solid #ced4da;
+}
+
+.dropdown i {
+  float: right;
+}
+
+.dropdown p {
+  float: left;
+}
