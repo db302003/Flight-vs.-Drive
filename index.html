@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Drive vs. Fly</title>
-  
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet">
 
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -43,7 +44,9 @@
             </div>
           </div> -->
           <div class="form-row">
-              <div class="form-group col-md-6">
+            <h2 class="instructions">Type in your travel and vehicle information below and click "compare" to display the aproximate cost in
+              gas to drive verse the current cheapest flight ticket price. </h2>
+            <div class="form-group col-md-6">
               <label for="origin">Origin's Airport Code</label>
               <input type="text" class="form-control" id="originAirport" placeholder="Exmaple: ATL">
             </div>
@@ -77,43 +80,43 @@
               </div>
               <!--make dropdown-->
               <div class="form-group col-md-6 dropdown">
-                <button class="btn btn-outline-secondary dropdown-toggle  make-dropdown" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-outline-secondary dropdown-toggle  make-dropdown" type="button"
+                  id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <p class="car-make-button-display">Make</p><i class="fas fa-caret-down"></i>
                 </button>
                 <div class="dropdown-menu car-make" data-boundary="scrollParent" aria-labelledby="dropdownMenu2">
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <!--model dropdown-->
+              <div class="form-group col-md-6 dropdown">
+                <button class="form-control btn btn-outline-secondary dropdown-toggle model-dropdown" type="button"
+                  id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <p class="car-model-button-display">Model</p><i class="fas fa-caret-down"></i>
+                </button>
+                <div class="dropdown-menu car-model" data-boundary="scrollParent" aria-labelledby="dropdownMenu2">
+                </div>
+              </div>
+              <!--trim dropdown-->
+              <div class="form-group col-md-6 dropdown">
+                <button class="form-control btn btn-outline-secondary dropdown-toggle trim-dropdown" type="button"
+                  id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <p class="car-trim-button-display">Trim</p><i class="fas fa-caret-down"></i>
+                </button>
+                <div class="dropdown-menu car-trim" data-boundary="scrollParent" aria-labelledby="dropdownMenu2">
+                </div>
               </div>
             </div>
           </div>
-          <div class="form-row">
-            <!--model dropdown-->
-            <div class="form-group col-md-6 dropdown">
-              <button class="form-control btn btn-outline-secondary dropdown-toggle model-dropdown" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <p class="car-model-button-display">Model</p><i class="fas fa-caret-down"></i>
-              </button>
-              <div class="dropdown-menu car-model" data-boundary="scrollParent" aria-labelledby="dropdownMenu2">
-              </div>
-            </div>
-            <!--trim dropdown-->
-            <div class="form-group col-md-6 dropdown">
-              <button class="form-control btn btn-outline-secondary dropdown-toggle trim-dropdown" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <p class="car-trim-button-display">Trim</p><i class="fas fa-caret-down"></i>
-              </button>
-              <div class="dropdown-menu car-trim" data-boundary="scrollParent" aria-labelledby="dropdownMenu2">
-              </div>
-            </div>
-          </div>
-        </div>
-        <button type="submit" class="btn btn-outline-primary" id="compare">Compare</button>
-      </form>
+          <button type="submit" class="btn btn-outline-primary" id="compare">Compare</button>
+        </form>
 
-    </div>
+      </div>
 
-    <div class="container-fluid" id="results">
-      <div class="row justify-content-around">
-        <div class="col-lg-5 col-12 fly">
+      <div class="container-fluid" id="results">
+        <div class="row justify-content-around">
+          <div class="col-lg-5 col-12 fly">
             <i class="results fas fa-plane"></i>
             <h2>Cheapest Direct Flight Price</h2>
             <h3 id="totalFlightPrice"></h3>
@@ -123,12 +126,12 @@
             <h4 id="route"></h4>
             <!-- <h2>Flight #</h2>
             <h3 id="flightNumber"></h3> -->
-        </div>
-        <div class="col-lg-5 col-12 nofly">
+          </div>
+          <div class="col-lg-5 col-12 nofly">
             <i class="results far fa-sad-cry"></i>
-            <h2>No  direct flights found.</h2>
-        </div>
-        <div class="col-lg-5 col-md-offset-2 col-12 drive">
+            <h2>No direct flights found.</h2>
+          </div>
+          <div class="col-lg-5 col-md-offset-2 col-12 drive">
             <i class="results fas fa-car"></i>
             <h2>Total Cost</h2>
             <h3 id="totalPrice"></h3>
@@ -138,9 +141,9 @@
             <h3 id="avgMPG"></h3>
             <h2>Average Gas Price</h2>
             <h3 id="avgGas"></h3>
+          </div>
         </div>
       </div>
-    </div>
 
 
 
