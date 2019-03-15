@@ -54,7 +54,8 @@ $(document).ready(function () {
   
     function checkFlights(origin, destination, departDate, returnDate){
       $.ajax({
-        url: "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" + origin + "/" + destination + "/" + departDate + "?inboundpartialdate=" + returnDate + "/",
+        url: "https://cors-anywhere.herokuapp.com/" 
+        + "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" + origin + "/" + destination + "/" + departDate + "?inboundpartialdate=" + returnDate + "/",
         type: 'GET',
         processData: false,
         headers: { 'X-RapidAPI-Key' : '0c3f5f89e9mshc4f5477381ec0f3p1020f4jsn3642d670322f' }
@@ -179,11 +180,11 @@ $(document).ready(function () {
 
     // ajax call to get list of vehicle year
 
-    $.ajax({
+  $.ajax({
 
-      url: "https://www.fueleconomy.gov/ws/rest/vehicle/menu/year",
-      method: "GET",
-      dataType: "JSON"
+    url: "https://www.fueleconomy.gov/ws/rest/vehicle/menu/year",
+    method: "GET",
+    dataType: "JSON"
 
   }).then(function (response) {
 
@@ -286,7 +287,7 @@ $(document).ready(function () {
 
           var carTrim = response.menuItem
 
-          console.log("TRIM: " + carTrim)
+          console.log(carTrim)
 
           for (var i = 0; i < carTrim.length; i++) {
 
@@ -320,16 +321,19 @@ $(document).ready(function () {
           dataType: "JSON"
 
       }).then(function (response) {
+        console.log("getAverageMPG: " + response)
 
+        // var response = response.avgMpg;
+        if(response === undefined ){
+          averageMPG = 24.7;
+        } else{
+          averageMPG = Math.floor(parseInt(response.avgMpg) * 100) / 100;
+        };
 
-              var response = response.avgMpg;
-              averageMPG = Math.floor(parseInt(response) * 100) / 100;
-              
+        console.log("average MPG: " + averageMPG);
+        $("#avgMPG").text(averageMPG);
 
-              console.log("average MPG: " + averageMPG);
-              $("#avgMPG").text(averageMPG);
-
-              return averageMPG;
+        return averageMPG;
 
 
       }, function (errorObject) {
@@ -397,9 +401,6 @@ $(document).ready(function () {
 
   $(document).on("click", ".car-trim-value", getTrimIDValue);
   $(document).on("click", ".car-trim-value", getAverageMPG);
-
-  // $(document).on("click", "#compare", getTotalFuelCost);
-
 
 
   $(".dropdown").on("click", function (event) {
