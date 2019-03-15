@@ -8,14 +8,16 @@ $(document).ready(function () {
 
     // apikey AIzaSyDS40PLoeiiJqj8po97w_uihJEJ9es1QB0
 
-    var queryOrigin = "nashville tennessee";
-    var queryDestination = "Middletown new jersey";
+    // var queryOrigin = "nashville tennessee";
+    // var queryDestination = "Middletown new jersey";
+    var queryOrigin = $("#origin").val().trim();
+    var queryDestination = $("#destination").val().trim();
     var fuelPrice = 0;
     var averageMPG = 0;
     var totalfuelCost = 0;
 
-    var queryURL = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + queryOrigin + "&destinations=" + queryDestination + "&key=AIzaSyDS40PLoeiiJqj8po97w_uihJEJ9es1QB0"
-    var proxyURL = "https://cors-anywhere.herokuapp.com/"
+    // var queryURL = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + queryOrigin + "&destinations=" + queryDestination + "&key=AIzaSyDS40PLoeiiJqj8po97w_uihJEJ9es1QB0"
+    // var proxyURL = "https://cors-anywhere.herokuapp.com/"
 
 
     // ajax call to get current average gas price
@@ -39,40 +41,42 @@ $(document).ready(function () {
 
 
     //ajax call to get disance between two locations and multiply it by the average MPG
-    function getTotalFuelCost() {
+    // function getTotalFuelCost() {
 
-        $.ajax({
+    //     $.ajax({
 
-            url: proxyURL + queryURL,
-            method: "GET"
+    //         url: proxyURL + queryURL,
+    //         method: "GET"
 
-        }).then(function (response) {
+    //     }).then(function (response) {
 
-            var results = response.rows;
+    //         console.log(response);
 
-            distance = results[0].elements[0].distance.text
+    //         var results = response.rows;
 
-            distance = parseFloat(distance)
+    //         // distance = results[0].elements[0].distance.text
 
-            console.log("distance " + distance)
+    //         distance = parseFloat(distance);
 
-            $("#miles").text(distance);
+    //         console.log("distance " + distance)
+
+    //         $("#miles").text(distance);
 
 
-            var gallonsNeeded = distance / averageMPG;
-            console.log("gallons needed: " + gallonsNeeded)
+    //         var gallonsNeeded = distance / averageMPG;
+    //         console.log("gallons needed: " + gallonsNeeded)
 
-            var totalfuelCost = gallonsNeeded * fuelPrice;
-            totalfuelCost = parseInt(totalfuelCost)
-            console.log("total Cost " + totalfuelCost)
+    //         var totalfuelCost = gallonsNeeded * fuelPrice;
+    //         totalfuelCost = parseInt(totalfuelCost)
+    //         console.log("total Cost " + totalfuelCost)
 
-            $("#totalPrice").text(totalfuelCost);
+    //         $("#totalPrice").text(totalfuelCost);
 
-        }, function (errorObject) {
-            console.log("the read failed:" + errorObject.code)
-        });
+    //     }, function (errorObject) {
+    //         console.log("the read failed:" + errorObject.code)
+    //     });
 
-    }
+    // }
 
 
 
@@ -188,7 +192,7 @@ $(document).ready(function () {
 
             var carTrim = response.menuItem
 
-            console.log(carTrim)
+            console.log("TRIM: " + carTrim)
 
             for (var i = 0; i < carTrim.length; i++) {
 
@@ -300,7 +304,7 @@ $(document).ready(function () {
     $(document).on("click", ".car-trim-value", getTrimIDValue);
     $(document).on("click", ".car-trim-value", getAverageMPG);
 
-    $(document).on("click", "#compare", getTotalFuelCost);
+    // $(document).on("click", "#compare", getTotalFuelCost);
 
 
 
