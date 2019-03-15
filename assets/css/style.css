@@ -52,6 +52,11 @@ p{
   float: left;
 }
 
+.dropdown-menu.show{
+  max-height: 300px;
+  overflow: scroll;
+}
+
 form{
   background-color: white;
   padding: 40px;
