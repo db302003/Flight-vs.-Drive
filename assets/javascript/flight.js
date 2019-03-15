@@ -31,7 +31,7 @@ $(document).ready(function () {
     var places = response.Places;
     var airline;
 
-    if(flight.length <= 1 ){
+    if(flight.length === 1 && flight[0].Direct === false || flight.length === 0){
       $(".fly").css("display", "none");
       $(".nofly").css("display", "inline")
       $("#results").css("display", "inline");
@@ -42,7 +42,7 @@ $(document).ready(function () {
           var directFlight = flight[direct];
           var directFlightCarrierId = directFlight.OutboundLeg.CarrierIds[0];
           $("#totalFlightPrice").text("$" + directFlight.MinPrice);
-          $("#route").text(places[0].IataCode + " > " + places[1].IataCode);
+          $("#route").html(places[0].IataCode + " <i class='fas fa-globe-americas'></i> " + places[1].IataCode);
           console.log(directFlightCarrierId)
           console.log(directFlight)
           for(var key in carriers) {
