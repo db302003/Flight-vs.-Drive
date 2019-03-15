@@ -31,7 +31,7 @@ $(document).ready(function () {
     var places = response.Places;
     var airline;
 
-    if(flight.length >= 0 ){
+    if(flight.length <= 1 ){
       $(".fly").css("display", "none");
       $(".nofly").css("display", "inline")
       $("#results").css("display", "inline");
