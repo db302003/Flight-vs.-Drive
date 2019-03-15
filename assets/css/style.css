@@ -115,3 +115,36 @@ input:valid {
   margin: 0 auto;
   margin-top: 70px;
 }
+
+
+.ui-datepicker {
+  width: 216px;
+  background-color: white;
+  margin: 5px auto 0;
+  padding: 10px;
+  border: 1px solid lightgrey;
+  cursor: pointer;
+}
+
+.ui-datepicker a {
+  text-decoration: none;
+}
+
+.ui-datepicker table {
+  width: 100%;
+}
+
+.ui-datepicker-header {
+  background: white;
+  color:  black;
+
+}
+.ui-datepicker-title {
+  text-align: center;
+  font-weight: 600;
+  padding: 5px;
+  background-color: lightgrey;
+}
+.ui-datepicker-next{
+  float: right;
+}

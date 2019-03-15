@@ -7,6 +7,10 @@ $(document).ready(function () {
   var averageMPG;
   var totalfuelCost = 0;
 
+  $(function(){
+    $("#depart").datepicker({ dateFormat: 'yy-mm-dd', minDate: 0, maxDate: "+8M" });
+  });
+
 
   // ajax call to get current average gas price
   $.ajax({
@@ -35,7 +39,9 @@ $(document).ready(function () {
 
     var originX = $("#originAirport").val().trim().toUpperCase();
     var destinationX = $("#destinationAirport").val().trim().toUpperCase();
-    var departDate = $("#depart").val().trim();
+    var departDateX = $("#depart").val().trim();
+    var departDate = departDateX;
+    console.log(departDate);
     var returnDate;
 
     // var originX = "LAS";
@@ -408,19 +414,7 @@ $(document).ready(function () {
   });
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+ 
 });
   
   
