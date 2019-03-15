@@ -6,18 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Flight Vs Gas</title>
+  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet">
 
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
-
 
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 
   <script type="text/javascript" src="assets/javascript/flight.js"></script>
   <script type="text/javascript" src="assets/javascript/gas-price.js"></script>
@@ -35,7 +34,7 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="origin">Origin</label>
-              <input type="text" class="form-control" id="origin" placeholder="City, State">
+              <input type="text" name="origin" class="form-control" id="origin" placeholder="City, State" required>
             </div>
             <div class="form-group col-md-6">
               <label for="destination">Destination</label>
@@ -119,9 +118,14 @@
             <h3 id="totalFlightPrice"></h3>
             <h2>Airline</h2>
             <h3 id="airline"></h3>
+            <h2>Route</h2>
             <h4 id="route"></h4>
             <h2>Flight #</h2>
             <h3 id="flightNumber"></h3>
+        </div>
+        <div class="col-md-5 col-sm-12 nofly">
+            <i class="results far fa-sad-cry"></i>
+            <h2>No flights found.</h2>
         </div>
         <div class="col-md-5 col-md-offset-2 col-sm-12 drive">
             <i class="results fas fa-car"></i>
@@ -131,6 +135,8 @@
             <h3 id="miles"></h3>
             <h2>Your Car's Average MPG</h2>
             <h3 id="avgMPG"></h3>
+            <h2>Average Gas Price</h2>
+            <h3 id="avgGas"></h3>
         </div>
       </div>
     </div>
@@ -144,6 +150,7 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
+      <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
 </body>
 
 </html>

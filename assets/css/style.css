@@ -87,3 +87,26 @@ h2{
 h3{
   font-size: 1.5em;
 }
+
+
+input:invalid {
+  /* border: 1px solid tomato; */
+}
+
+input:valid {
+  /* border: 2px solid black; */
+}
+
+.nofly{
+  display: none;
+  background-color: white;
+  text-align: center;
+  padding: 40px 20px 20px 20px;
+  margin-top: 40px;
+}
+
+.nofly h2{
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 70px;
+}
