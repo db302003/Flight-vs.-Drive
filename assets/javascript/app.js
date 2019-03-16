@@ -258,9 +258,21 @@ $(document).ready(function () {
           dataType: "JSON"
 
       }).then(function (response) {
-          var carModel = response.menuItem
+          var carModel = response.menuItem;
 
-          console.log(carModel)
+          console.log(carModel);
+          console.log(Array.isArray(carModel));
+
+          if(Array.isArray(carModel) === false){
+            var newDropButton = $("<button>")
+            newDropButton.addClass("dropdown-item")
+            newDropButton.addClass("car-model-value")
+            newDropButton.attr("data-boundary", "scrollParent")
+            newDropButton.attr("value", carModel.value)
+            newDropButton.text(carModel.text)
+
+            $(".car-model").append(newDropButton)
+          }
 
           for (var i = 0; i < carModel.length; i++) {
 
@@ -291,9 +303,22 @@ $(document).ready(function () {
 
       }).then(function (response) {
 
-          var carTrim = response.menuItem
+          var carTrim = response.menuItem;
 
-          console.log(carTrim)
+          console.log("hi")
+
+          console.log(carTrim);
+
+          if(Array.isArray(carTrim) === false){
+            var newDropButton = $("<button>")
+            newDropButton.addClass("dropdown-item")
+            newDropButton.addClass("car-trim-value")
+            newDropButton.attr("data-boundary", "scrollParent")
+            newDropButton.attr("value", carTrim.value)
+            newDropButton.text(carTrim.text)
+
+            $(".car-trim").append(newDropButton)
+          }
 
           for (var i = 0; i < carTrim.length; i++) {
 
