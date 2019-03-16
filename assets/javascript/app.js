@@ -357,6 +357,7 @@ $(document).ready(function () {
         // var response = response.avgMpg;
         if(response === undefined ){
           averageMPG = 24.7;
+          $("#avgText").text("National Average MPG");
         } else{
           averageMPG = Math.floor(parseInt(response.avgMpg) * 100) / 100;
         };
