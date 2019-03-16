@@ -62,7 +62,7 @@ $(document).ready(function () {
     function checkFlights(origin, destination, departDate, returnDate){
       $.ajax({
         url: "https://cors-anywhere.herokuapp.com/" 
-        + "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" + origin + "/" + destination + "/" + departDate + "?inboundpartialdate=" + returnDate + "/",
+        + "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" + origin + "/" + destination + "/" + departDate + "/",
         type: 'GET',
         processData: false,
         headers: { 'X-RapidAPI-Key' : '0c3f5f89e9mshc4f5477381ec0f3p1020f4jsn3642d670322f' }
