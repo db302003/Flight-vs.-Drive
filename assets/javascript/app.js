@@ -85,7 +85,7 @@ $(document).ready(function () {
             var directFlight = flight[direct];
             var directFlightCarrierId = directFlight.OutboundLeg.CarrierIds[0];
             $("#totalFlightPrice").text("$" + directFlight.MinPrice);
-            $("#route").html(places[0].IataCode + " <i class='fas fa-globe-americas'></i> " + places[1].IataCode);
+            $("#route").html(places[0].IataCode + " <i class='fas fa-arrow-right'></i> " + places[1].IataCode);
             for(var key in carriers) {
               if(carriers[key].CarrierId === directFlightCarrierId) {
                 airline = carriers[key].Name;

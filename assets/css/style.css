@@ -80,6 +80,7 @@ p{
 .dropdown-menu.show{
   max-height: 300px;
   overflow: scroll;
+  width: 98%;
 }
 
 .form-control{
@@ -152,4 +153,13 @@ input:valid {
 .instructions{
   font-size: 14px;
   margin-bottom: 20px;
+}
+
+label i{
+  margin-right: 5px;
+  color: #ced4da;
+}
+
+h4 i{
+  color: #ced4da;
 }
