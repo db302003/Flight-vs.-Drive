@@ -43,6 +43,7 @@ $(document).ready(function () {
     var departDate = departDateX;
     console.log(departDate);
     var returnDate;
+    $("#date").text(departDate);
 
     // var originX = "LAS";
     // var destinationX = "MCO";
