@@ -35,13 +35,22 @@ form{
   display: none;
 }
 
+.dropdown-menu{
+  padding: 0px;
+}
+
 
 p{
   margin-bottom: 0px;
 }
 
 .dropdown button{
-  border: 1px solid #ced4da;
+  border-color: #ced4da;
+  border-bottom: 1px solid #ced4da;
+}
+
+.btn-outline-secondary {
+  /* border-color: #ced4da !important; */
 }
 
 .dropdown i {
