@@ -115,3 +115,8 @@ input:valid {
   margin: 0 auto;
   margin-top: 70px;
 }
+
+.instructions{
+  font-size: 14px;
+  margin-bottom: 20px;
+}

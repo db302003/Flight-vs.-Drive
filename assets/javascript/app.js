@@ -411,6 +411,7 @@ $(document).ready(function () {
 
   function getTrimIDValue() {
 
+
       carTrimIDValue = $(this).val();
       carTrimText = $(this).text();
       $(".car-trim-button-display").text(carTrimText)
