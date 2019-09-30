@@ -1,25 +1,15 @@
 # Fly vs. Drive
 
 ## Contributors
-@katiekatieb
-@GutleberB94 
-@db302003
+@db302003  @katiekatieb  @GutleberB94 
 
-
-## Technology
+## Technology Used
 * HTML, CSS, Javascript, jQuery, AJAX, API's
 * Live demo: https://katiekatieb.github.io/project1/
 
 ## About
+This project was to create a user friendly application that would determine cost affective travel between flying or driving to your destination. With the cost of gas this will use the API to render information for the user per gas mileage. Using this will save time and money while traveling beyond API points of interest. 
 
 
 ## License 
 * This project is licensed under The MIT License (MIT).
-
-
-## How-to use this code
-* Fork the repo and add your content.
-
-## Contributing Guidelines
-All contributions and suggestions are welcome!
-For direct contributions, please fork the repository and file a pull request. 
